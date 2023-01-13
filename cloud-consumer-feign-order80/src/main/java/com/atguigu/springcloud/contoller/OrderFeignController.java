@@ -18,4 +18,12 @@ public class OrderFeignController {
 	public CommonResult<Payment> getPayment(@PathVariable("id")Long id){
 		return paymentFeignService.getPaymentByid(id);
 	}
+
+	@GetMapping(value = "/consumer/payment/feign/timeout")
+	public String paymentFeignTimeout(){
+		//客户端一般默认等待一秒
+		return paymentFeignService.paymentFeignTimeout();
+	}
+
+
 }
